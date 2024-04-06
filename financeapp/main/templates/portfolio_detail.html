@@ -14,15 +14,7 @@
 </section>
 
 <main>
-    <section>
-        <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 3fr;">
-            <form class="d-flex" role="search">
-                <input class="form-control md-2" type="search" placeholder="Type to search stocks..." aria-label="Search">
-                <button class="btn btn-outline-success w-25" type="submit">Add</button>
-            </form>
-        </div>
-    </section>
-
+    
     <section>
         <!-- This will hold the chart (pie chart?) -->
         <div id="chart" style="width:100%;height:225px;"></div>
@@ -54,6 +46,16 @@
             </tbody>
         </table>
     </section>
+
+    <section>
+        <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 3fr;">
+            <form class="d-flex" role="search">
+                <input class="form-control md-2" type="search" placeholder="Type to search stocks..." aria-label="Search">
+                <button class="btn btn-outline-success w-25" type="submit">Add</button>
+            </form>
+        </div>
+    </section>
+
 </main>
 
 {% endblock %}
