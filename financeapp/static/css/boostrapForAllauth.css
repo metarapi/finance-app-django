@@ -1,0 +1,78 @@
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+.google-icon {
+    fill: #EA4335;
+    /* Google color */
+}
+
+.btn-google,
+.btn-discord {
+    color: gray;
+    border-color: gray;
+    background-color: transparent;
+}
+
+.btn-google:hover,
+.btn-google:focus,
+.btn-google:active {
+    color: white;
+    background-color: #EA4335;
+    /* Google color */
+}
+
+.btn-discord:hover,
+.btn-discord:focus,
+.btn-discord:active {
+    color: white;
+    background-color: #7289DA;
+    /* Discord color */
+}
+
+.form-signin {
+    padding: 0;
+    max-width: 330px;
+    padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"], 
+.form-signin input[type="password"], 
+.form-signin input[type="text"] {
+    border-radius: 0;
+    margin-bottom: -16px;
+}
+
+.form-signin input[type="email"].last-field, 
+.form-signin input[type="password"].last-field, 
+.form-signin input[type="text"].last-field {
+    margin-bottom: 10px; 
+}
+
+.btn {
+    margin-bottom: 0;
+}
+
+body.d-flex {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* This is for vertical centering, remove if not needed */
+}
+
+.card {
+    height: 300px; 
+}

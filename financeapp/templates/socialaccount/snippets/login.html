@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load allauth %}
+{% load socialaccount %}
+{% get_providers as socialaccount_providers %}
+{% if socialaccount_providers %}
+    {% element hr %}
+    {% endelement %}
+    {% element h2 %}
+    <h2 class="h2 mb-3 fw-normal">{% translate "Or use a third-party" %}</h2>
+    {% endelement %}
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    {% include "socialaccount/snippets/login_extra.html" %}
+{% endif %}

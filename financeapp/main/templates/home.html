@@ -1,0 +1,102 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %}
+{% block content %}
+<section class="py-1 text-center container">
+    <div class="row py-lg-1">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Portfolios</h1>
+        </div>
+    </div>
+</section>
+<main>
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+
+            <div id="portfolio-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" hx-swap="innerHTML swap:afterend">
+                
+                    {% for portfolio in portfolios %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div id="chart{{ forloop.counter }}" style="width:100%;height:225px;"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ portfolio.name }}</h5>
+                                <p class="card-text">{{ portfolio.description }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'portfolio_detail' portfolio.id %}" class="btn btn-sm btn-outline-secondary">Open</a>
+                                        <!-- Delete button triggers the modal -->
+                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal{{ portfolio.id }}"
+                                            data-portfolio-id="#deleteModal{{ portfolio.id }}">Delete</button>
+                                    </div>    
+                                        <!-- Modal for deleting the portfolio -->
+                                        <div class="modal fade" id="deleteModal{{ portfolio.id }}" tabindex="-1"
+                                            aria-labelledby="deleteModalLabel{{ portfolio.id }}" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel{{ portfolio.id }}">
+                                                            Delete Portfolio</h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete this portfolio?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            hx-post="{% url 'delete_portfolio' portfolio.id %}"
+                                                            hx-vals='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'
+                                                            hx-target="#portfolio-list"
+                                                            hx-trigger="click" data-bs-dismiss="modal">Confirm Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <small class="text-body-secondary">{{ portfolio.last_updated }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                
+                
+            
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <form action="{% url 'create_portfolio' %}" method="POST"
+                                hx-post="{% url 'create_portfolio' %}" hx-target="#portfolio-list" hx-swap="innerHTML">
+                                {% csrf_token %}
+                                <input type="text" name="name" class="form-control mb-3 input-field"
+                                    placeholder="Enter portfolio name" required>
+                                <textarea type="text" name="description" class="form-control mb-3 input-field w-100"
+                                    placeholder="Enter portfolio description" rows="6"></textarea>
+                                <input type="hidden" name="user" value="{{ user.id }}">
+                                <button type="submit" class="btn btn-primary button-width w-100">Create New</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+<!--
+    {% load socialaccount %}
+    <h2>Google Login</h2>
+    <a href="{% provider_login_url 'google' %}?next=/">Login with Google</a>
+    <h2>Discord Login</h2>
+    <a href="{% provider_login_url 'discord' %}?next=/">Login with Discord</a>
+    {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p>
+        <p><a href="{% url 'logout' %}">Log out</a></p> 
+    {% endif %}
+    -->
+
+<script>
+</script>
+
+{% endblock %}

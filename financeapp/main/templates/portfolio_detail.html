@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %}
+{% block content %}
+
+<section class="py-1 text-center container">
+    <div class="row py-lg-1">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">{{ portfolio.name }}</h1>
+            <div class="d-flex align-items-center justify-content-center">
+                <p class="lead text-muted mb-0">{{ portfolio.description }}</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary ml-3" style="--bs-btn-font-size: .75rem;">Edit Description</button>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section>
+        <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 3fr;">
+            <form class="d-flex" role="search">
+                <input class="form-control md-2" type="search" placeholder="Type to search stocks..." aria-label="Search">
+                <button class="btn btn-outline-success w-25" type="submit">Add</button>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <!-- This will hold the chart (pie chart?) -->
+        <div id="chart" style="width:100%;height:225px;"></div>
+    </section>
+
+    <section>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Stock Ticker</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Sector</th>
+                    <th scope="col">Exchange</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>ABR</td>
+                    <td>Arbor Realty Trust</td>
+                    <td>REIT</td>
+                    <td>NASDAQ</td>
+                    <td class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-sm btn-outline-danger w-50">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+{% endblock %}
