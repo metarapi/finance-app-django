@@ -1,0 +1,8 @@
+# Ignore the entire 'logs' directory
+Bootstrap Samples/
+env/
+client_secret_475955644024-0t3neqbsh2n34por8ddhaa26tm6tvb46.apps.googleusercontent.com.json
+discord.json
+reinvestPredictor.py
+testingY.ipynb
+yAPI.py
