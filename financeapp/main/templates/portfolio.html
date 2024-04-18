@@ -1,0 +1,38 @@
+{% if stocks %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stock Ticker</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Sector</th>
+            <th scope="col">Exchange</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for stock in stocks %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ stock.ticker }}</td>
+            <td>{{ stock.short_name }}</td>
+            <td>{{ stock.sector }}</td>
+            <td>{{ stock.exchange }}</td>
+            <td class="d-flex justify-content-end">
+                <form method="post" hx-post="{% url 'remove_from_portfolio' %}" 
+                hx-target ="#portfolio" hx-swap="innerHTML" hx-trigger="click" 
+                hx-confirm="Are you sure you want to remove this stock from the portfolio?"
+                hx-vals='{"csrfmiddlewaretoken" : "{{ csrf_token}}"}'>
+                    {% csrf_token %}
+                    <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
+                    <input type="hidden" name="stock_id" value="{{ stock.id }}">
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No stocks in this portfolio.</p>
+{% endif %}

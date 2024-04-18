@@ -1,0 +1,94 @@
+ticker,short name,long name,sector,industry,exchange,country,data retrieved
+AAPL,Apple Inc.,Apple Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+MSFT,Microsoft Corporation,Microsoft Corporation,Technology,Software & Computer Services,NASDAQ,USA,False
+AMZN,Amazon.com Inc.,Amazon.com Inc.,Consumer Services,General Retailers,NASDAQ,USA,False
+GOOGL,Alphabet Inc. (Google),Alphabet Inc.,Technology,Software & Computer Services,NASDAQ,USA,False
+FB,Meta Platforms Inc. (Facebook),Meta Platforms Inc.,Technology,Software & Computer Services,NASDAQ,USA,False
+TSLA,Tesla Inc.,Tesla Inc.,Automobiles & Parts,N/A,NASDAQ,USA,False
+JPM,JPMorgan Chase & Co.,JPMorgan Chase & Co.,Financials,Banks,NYSE,USA,False
+V,Visa Inc.,Visa Inc.,Financials,Financial Services,NYSE,USA,False
+JNJ,Johnson & Johnson,Johnson & Johnson,Health Care,Pharmaceuticals & Biotechnology,NYSE,USA,False
+NVDA,NVIDIA Corporation,NVIDIA Corporation,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+PG,Procter & Gamble Company,Procter & Gamble Co.,Consumer Goods,Household Goods,NYSE,USA,False
+MA,Mastercard Incorporated,Mastercard Inc.,Financials,Financial Services,NYSE,USA,False
+UNH,UnitedHealth Group Incorporated,UnitedHealth Group Inc.,Health Care,Health Care Equipment & Services,NYSE,USA,False
+HD,The Home Depot Inc.,Home Depot Inc.,Retailers,General Retailers,NYSE,USA,False
+PYPL,PayPal Holdings Inc.,PayPal Holdings Inc.,Financials,Financial Services,NASDAQ,USA,False
+DIS,The Walt Disney Company,Walt Disney Co.,Consumer Services,Travel & Leisure,NYSE,USA,False
+INTC,Intel Corporation,Intel Corporation,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+CRM,Salesforce.com Inc.,Salesforce.com Inc.,Technology,Software & Computer Services,NYSE,USA,False
+BAC,Bank of America Corporation,Bank of America Corp.,Financials,Banks,NYSE,USA,False
+CMCSA,Comcast Corporation,Comcast Corp.,Consumer Services,Media,NASDAQ,USA,False
+ASML,ASML Holding NV,ASML Holding NV,Technology,Technology Hardware & Equipment,NASDAQ,Netherlands,False
+NFLX,Netflix Inc.,Netflix Inc.,Consumer Services,Media,NASDAQ,USA,False
+T,AT&T Inc.,AT&T Inc.,Telecommunications,Fixed Line Telecommunications,NYSE,USA,False
+NKE,Nike Inc.,Nike Inc.,Consumer Goods,Personal Goods,NYSE,USA,False
+ADBE,Adobe Inc.,Adobe Inc.,Technology,Software & Computer Services,NASDAQ,USA,False
+XOM,Exxon Mobil Corporation,Exxon Mobil Corp.,Oil & Gas,Oil & Gas Producers,NYSE,USA,False
+WMT,Walmart Inc.,Walmart Inc.,Retailers,Food & Drug Retailers,NYSE,USA,False
+KO,The Coca-Cola Company,Coca-Cola Co.,Consumer Goods,Beverages,NYSE,USA,False
+PEP,PepsiCo Inc.,PepsiCo Inc.,Consumer Goods,Beverages,NASDAQ,USA,False
+CSCO,Cisco Systems Inc.,Cisco Systems Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+ABT,Abbott Laboratories,Abbott Laboratories,Health Care,Health Care Equipment & Services,NYSE,USA,False
+VZ,Verizon Communications Inc.,Verizon Communications Inc.,Telecommunications,Mobile Telecommunications,NYSE,USA,False
+ACN,Accenture plc,Accenture plc,Industrials,Support Services,NYSE,USA,False
+TMO,Thermo Fisher Scientific Inc.,Thermo Fisher Scientific Inc.,Health Care,Health Care Equipment & Services,NYSE,USA,False
+NVS,Novartis AG,Novartis AG,Health Care,Pharmaceuticals & Biotechnology,NYSE,Switzerland,False
+SAP,SAP SE,SAP SE,Technology,Software & Computer Services,NYSE,Germany,False
+AMGN,Amgen Inc.,Amgen Inc.,Health Care,Pharmaceuticals & Biotechnology,NASDAQ,USA,False
+ORCL,Oracle Corporation,Oracle Corporation,Technology,Software & Computer Services,NYSE,USA,False
+ABBV,AbbVie Inc.,AbbVie Inc.,Health Care,Pharmaceuticals & Biotechnology,NYSE,USA,False
+IBM,International Business Machines Corporation,International Business Machines Corp.,Technology,Software & Computer Services,NYSE,USA,False
+MDT,Medtronic plc,Medtronic plc,Health Care,Health Care Equipment & Services,NYSE,Ireland,False
+MRK,Merck & Co. Inc.,Merck & Co. Inc.,Health Care,Pharmaceuticals & Biotechnology,NYSE,USA,False
+PFE,Pfizer Inc.,Pfizer Inc.,Health Care,Pharmaceuticals & Biotechnology,NYSE,USA,False
+CHTR,Charter Communications Inc.,Charter Communications Inc.,Consumer Services,Media,NASDAQ,USA,False
+QCOM,QUALCOMM Incorporated,QUALCOMM Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+MMM,3M Company,3M Co.,Industrials,Industrial Engineering,NYSE,USA,False
+LMT,Lockheed Martin Corporation,Lockheed Martin Corp.,Industrials,Aerospace & Defense,NYSE,USA,False
+BMY,Bristol-Myers Squibb Company,Bristol-Myers Squibb Co.,Health Care,Pharmaceuticals & Biotechnology,NYSE,USA,False
+GS,The Goldman Sachs Group Inc.,Goldman Sachs Group Inc.,Financials,Financial Services,NYSE,USA,False
+CVX,Chevron Corporation,Chevron Corp.,Oil & Gas,Oil & Gas Producers,NYSE,USA,False
+CAT,Caterpillar Inc.,Caterpillar Inc.,Industrials,Industrial Engineering,NYSE,USA,False
+DHR,Danaher Corporation,Danaher Corp.,Health Care,Health Care Equipment & Services,NYSE,USA,False
+ADP,Automatic Data Processing Inc.,Automatic Data Processing Inc.,Technology,Software & Computer Services,NASDAQ,USA,False
+TXN,Texas Instruments Incorporated,Texas Instruments Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+LLY,Eli Lilly and Company,Eli Lilly and Co.,Health Care,Pharmaceuticals & Biotechnology,NYSE,USA,False
+MO,Altria Group Inc.,Altria Group Inc.,Consumer Goods,Tobacco,NYSE,USA,False
+NEE,NextEra Energy Inc.,NextEra Energy Inc.,Utilities,Electricity,NYSE,USA,False
+AVGO,Broadcom Inc.,Broadcom Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+UPS,United Parcel Service Inc.,United Parcel Service Inc.,Industrial Transportation,Industrial Transportation,NYSE,USA,False
+UNP,Union Pacific Corporation,Union Pacific Corp.,Industrial Transportation,Industrial Transportation,NYSE,USA,False
+AMT,American Tower Corporation,American Tower Corp.,Real Estate,Real Estate Investment Trusts,NYSE,USA,False
+COST,Costco Wholesale Corporation,Costco Wholesale Corp.,Retailers,Food & Drug Retailers,NASDAQ,USA,False
+HON,Honeywell International Inc.,Honeywell International Inc.,Industrials,Aerospace & Defense,NYSE,USA,False
+ABNB,Airbnb Inc.,Airbnb Inc.,Consumer Services,Travel & Leisure,NASDAQ,USA,False
+NOW,ServiceNow Inc.,ServiceNow Inc.,Technology,Software & Computer Services,NYSE,USA,False
+SNOW,Snowflake Inc.,Snowflake Inc.,Technology,Software & Computer Services,NYSE,USA,False
+ZM,Zoom Video Communications Inc.,Zoom Video Communications Inc.,Technology,Software & Computer Services,NASDAQ,USA,False
+AMD,Advanced Micro Devices Inc.,Advanced Micro Devices Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+ATVI,Activision Blizzard Inc.,Activision Blizzard Inc.,Consumer Goods,Recreational Products,NASDAQ,USA,False
+FDX,FedEx Corporation,FedEx Corporation,Industrial Transportation,Industrial Transportation,NYSE,USA,False
+FISV,Fiserv Inc.,Fiserv Inc.,Financials,Financial Services,NASDAQ,USA,False
+WBA,Walgreens Boots Alliance Inc.,Walgreens Boots Alliance Inc.,Consumer Services,Drug Retailers,NASDAQ,USA,False
+MMM,3M Company,3M Co.,Industrials,Industrial Engineering,NYSE,USA,False
+LRCX,Lam Research Corporation,Lam Research Corp.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+INTU,Intuit Inc.,Intuit Inc.,Technology,Software & Computer Services,NASDAQ,USA,False
+ICE,Intercontinental Exchange Inc.,Intercontinental Exchange Inc.,Financials,Financial Services,NYSE,USA,False
+MCD,McDonald's Corporation,McDonald's Corp.,Consumer Services,Retailers,NYSE,USA,False
+GILD,Gilead Sciences Inc.,Gilead Sciences Inc.,Health Care,Biotechnology,NASDAQ,USA,False
+RTX,Raytheon Technologies Corporation,Raytheon Technologies Corp.,Industrials,Aerospace & Defense,NYSE,USA,False
+ADI,Analog Devices Inc.,Analog Devices Inc.,Technology,Technology Hardware & Equipment,NASDAQ,USA,False
+SO,Southern Company,Southern Co.,Utilities,Electricity,NYSE,USA,False
+D,Domino's Pizza Inc.,Domino's Pizza Inc.,Consumer Services,Travel & Leisure,NYSE,USA,False
+WM,Waste Management Inc.,Waste Management Inc.,Utilities,Environmental Services,NYSE,USA,False
+SYK,Stryker Corporation,Stryker Corp.,Health Care,Health Care Equipment & Services,NYSE,USA,False
+BKNG,Booking Holdings Inc.,Booking Holdings Inc.,Consumer Services,Travel & Leisure,NASDAQ,USA,False
+EMR,Emerson Electric Co.,Emerson Electric Co.,Industrials,Industrial Engineering,NYSE,USA,False
+TGT,Target Corporation,Target Corp.,Retailers,General Retailers,NYSE,USA,False
+AEP,American Electric Power Company Inc.,American Electric Power Co.,Utilities,Electricity,NYSE,USA,False
+VRTX,Vertex Pharmaceuticals Incorporated,Vertex Pharmaceuticals Inc.,Health Care,Biotechnology,NASDAQ,USA,False
+VRTX,Vertex Pharmaceuticals Incorporated,Vertex Pharmaceuticals Inc.,Health Care,Biotechnology,NASDAQ,USA,False
+DUK,Duke Energy Corporation,Duke Energy Corp.,Utilities,Electricity,NYSE,USA,False
+PLD,Prologis Inc.,Prologis Inc.,Real Estate,Real Estate Investment Trusts,NYSE,USA,False
+EXC,Exelon Corporation,Exelon Corp.,Utilities,Electricity,NASDAQ,USA,False

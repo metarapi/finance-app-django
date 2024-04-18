@@ -68,7 +68,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         }
     },
-    # This is only needed if you don't set up the Social Application in the Django admin UI. It's either here or there.
+    #This is only needed if you don't set up the Social Application in the Django admin UI. It's either here or there.
     # 'discord': {
     #     'APP': {
     #         'client_id': os.getenv('DISCORD_CLIENT_ID'),

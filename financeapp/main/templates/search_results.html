@@ -1,0 +1,26 @@
+{% if results %}
+    <ul class="list-group col-xs-12">
+    {% for stock in results %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="w-100">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4>{{ stock.ticker }}</h4>
+                    <p class="mb-1">{{ stock.country }}</p>
+                </div>
+                <div class="d-flex w-100 justify-content-between">
+                    <p class="mb-1">{{ stock.short_name }}</p>
+                    <small class="text-body-secondary">{{ stock.exchange }}</small>
+                </div>
+            </div>
+            <form hx-post="{% url 'add_to_portfolio' %}" hx-trigger="click" hx-target="#portfolio" hx-swap="innerHTML" class="d-flex w-25">
+                {% csrf_token %}
+                <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
+                <input type="hidden" name="stock_id" value="{{ stock.id }}">
+                <button class="btn btn-outline-success w-100" type="submit" style="margin-left: 10px;">Add</button>
+            </form>
+        </li>
+    {% empty %}
+        <p>No results found</p>
+    {% endfor %}
+    </ul>
+{% endif %}
