@@ -1,4 +1,26 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %}
+{% block search_stock %}
+<section>
+
+    <div class="container-fluid">
+        <div style="position: relative;">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
+                <input type="search" class="form-control" hx-post="{% url 'search_stock' %}" hx-target='#results'
+                    hx-trigger="keyup changed delay:1000ms" hx-swap="innerHTML" hx-indicator="#loading-indicator" name="search"
+                    minlength="1" placeholder="Type to search stocks..." aria-label="Search" />
+            </form>
+            <div id="results"></div>
+            <div id="loading-indicator" class="d-flex justify-content-center visually-hidden">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
 {% block content %}
 
 <section class="py-1 text-center container">
@@ -8,13 +30,14 @@
             <div class="d-flex align-items-center justify-content-center">
                 <p class="lead text-muted mb-0">{{ portfolio.description }}</p>
             </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary ml-3" style="--bs-btn-font-size: .75rem;">Edit Description</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary ml-3" style="--bs-btn-font-size: .75rem;">Edit
+                Description</button>
         </div>
     </div>
 </section>
 
 <main>
-    
+
     <section>
         <!-- This will hold the chart (pie chart?) -->
         <div id="chart" style="width:100%;height:225px;"></div>
@@ -42,59 +65,51 @@
                     <td>{{ stock.sector }}</td>
                     <td>{{ stock.exchange }}</td>
                     <td class="d-flex justify-content-end">
-                        <form method="post" hx-post="{% url 'remove_from_portfolio' %}" 
-                        hx-target ="#portfolio" hx-swap="innerHTML" hx-trigger="click" 
-                        hx-confirm="Are you sure you want to remove this stock from the portfolio?"
-                        hx-vals='{"csrfmiddlewaretoken" : "{{ csrf_token}}"}'>
-                            {% csrf_token %}
-                            <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
-                            <input type="hidden" name="stock_id" value="{{ stock.id }}">
-                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                        </form>
+                        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal{{ stock.id }}">Delete</button>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+
+        <!-- This second for loop is here to keep the forms outside of the tables and to dhere to the HTML specs -->
+        {% for stock in stocks %}
+        <!-- Modal for deleting the stock -->
+        <div class="modal fade" id="deleteModal{{ stock.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ stock.id }}"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel{{ stock.id }}">Delete Stock
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to remove {{ stock.ticker }} from the portfolio?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form method="post" hx-post="{% url 'remove_from_portfolio' %}" hx-target="#portfolio"
+                            hx-swap="innerHTML" hx-trigger="submit" hx-vals='{"csrfmiddlewaretoken" : "{{ csrf_token}}"}'
+                            onsubmit="console.log('Form submitted')">
+                            {% csrf_token %}
+                            <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
+                            <input type="hidden" name="stock_id" value="{{ stock.id }}">
+                            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                                onclick="console.log('Button clicked')">Confirm Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
         {% else %}
         <p>No stocks in this portfolio.</p>
         {% endif %}
     </section>
 
-    <section>
-        
-            <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 1fr;">
-                <div style="position: relative;">
-                    <form method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
-                        <input type="search" class="form-control" hx-post="{% url 'search_stock' %}"
-                            hx-target='#results' hx-trigger="keyup changed delay:1000ms" hx-indicator="#loading-indicator" name="search" minlength="1"
-                            placeholder="Type to search stocks..." aria-label="Search" />
-                    </form>
-                    <div id="results"></div>
-                    <div id="loading-indicator" class="d-flex justify-content-center visually-hidden">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <p>some other stuff</p>
-                </div>
-            </div>
-
-            
-        
-    </section>
-
 </main>
 
-            <!--
-            <form class="d-flex" role="search">
-                <input class="form-control md-2" type="search" placeholder="Type to search stocks..." aria-label="Search">
-                <button class="btn btn-outline-success w-25" type="submit">Add</button>
-            </form>
-            -->
-
 {% endblock %}
+

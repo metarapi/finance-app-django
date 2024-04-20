@@ -92,8 +92,11 @@ def add_to_portfolio(request):
     stock = get_object_or_404(Stock, id=stock_id)
 
     # Create a new PortfolioStock object instance (junction table entry)
-    portfolio_stock = PortfolioStock(portfolio=portfolio, stock=stock)
-    portfolio_stock.save()
+    #portfolio_stock = PortfolioStock(portfolio=portfolio, stock=stock)
+    #portfolio_stock.save()
+
+    # Get or create a new PortfolioStock object instance (junction table entry)
+    portfolio_stock, created = PortfolioStock.objects.get_or_create(portfolio=portfolio, stock=stock)
 
     # Retrieve the stocks in the portfolio
     portfolio_stocks = PortfolioStock.objects.filter(portfolio=portfolio)
@@ -109,12 +112,12 @@ def add_to_portfolio(request):
 @login_required
 def remove_from_portfolio(request):
 
-    print(f'Request method: {request.method}')
-    print(f'Request POST data: {request.POST}')
-
     # Get the portfolio ID and stock ID from the request
     stock_id = request.POST.get('stock_id')
     portfolio_id = request.POST.get('portfolio_id')
+
+    print(f'Stock ID: {stock_id}')
+    print(f'Portfolio ID: {portfolio_id}')
 
     if not stock_id or not portfolio_id:
         return HttpResponseBadRequest('Stock ID and Portfolio ID are required')

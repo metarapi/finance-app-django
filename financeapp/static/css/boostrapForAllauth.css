@@ -76,3 +76,7 @@ body.d-flex {
 .card {
     height: 300px; 
 }
+
+.search-result-card {
+    height: auto !important;
+}

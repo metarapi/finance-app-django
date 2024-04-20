@@ -19,20 +19,45 @@
             <td>{{ stock.sector }}</td>
             <td>{{ stock.exchange }}</td>
             <td class="d-flex justify-content-end">
-                <form method="post" hx-post="{% url 'remove_from_portfolio' %}" 
-                hx-target ="#portfolio" hx-swap="innerHTML" hx-trigger="click" 
-                hx-confirm="Are you sure you want to remove this stock from the portfolio?"
-                hx-vals='{"csrfmiddlewaretoken" : "{{ csrf_token}}"}'>
-                    {% csrf_token %}
-                    <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
-                    <input type="hidden" name="stock_id" value="{{ stock.id }}">
-                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                </form>
+                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal{{ stock.id }}">Delete</button>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<!-- This second for loop is here to keep the forms outside of the tables and to dhere to the HTML specs -->
+{% for stock in stocks %}
+<!-- Modal for deleting the stock -->
+<div class="modal fade" id="deleteModal{{ stock.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ stock.id }}"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel{{ stock.id }}">Delete Stock
+                </h5>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove {{ stock.ticker }} from the portfolio?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form method="post" hx-post="{% url 'remove_from_portfolio' %}" hx-target="#portfolio"
+                    hx-swap="innerHTML" hx-trigger="submit" hx-vals='{"csrfmiddlewaretoken" : "{{ csrf_token}}"}'
+                    onsubmit="console.log('Form submitted')">
+                    {% csrf_token %}
+                    <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
+                    <input type="hidden" name="stock_id" value="{{ stock.id }}">
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                        onclick="console.log('Button clicked')">Confirm Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
 {% else %}
 <p>No stocks in this portfolio.</p>
 {% endif %}
