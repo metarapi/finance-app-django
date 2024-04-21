@@ -8,7 +8,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
                 <input type="search" class="form-control" hx-post="{% url 'search_stock' %}" hx-target='#results'
-                    hx-trigger="keyup changed delay:1000ms" hx-swap="innerHTML" hx-indicator="#loading-indicator" name="search"
+                    hx-trigger="keyup changed delay:1000ms, search" hx-swap="innerHTML" hx-indicator="#loading-indicator" name="search"
                     minlength="1" placeholder="Type to search stocks..." aria-label="Search" />
             </form>
             <div id="results"></div>

@@ -1,4 +1,3 @@
-{% if results %}
 <div class="card search-result-card" style="position: absolute; z-index: 1; width: 100%;">
     <ul class="list-group col-xs-12">
     {% for stock in results %}
@@ -17,12 +16,18 @@
                 {% csrf_token %}
                 <input type="hidden" name="portfolio_id" value="{{ portfolio.id }}">
                 <input type="hidden" name="stock_id" value="{{ stock.id }}">
-                <button class="btn btn-outline-success w-100" type="submit" style="margin-left: 10px;">Add</button>
+                <button class="btn btn-outline-success w-100" type="submit" style="margin-left: 10px;" onclick="disableButton(this)" {% if stock.id in portfolio_stock_ids %}disabled{% endif %}>{% if stock.id in portfolio_stock_ids %}Added{% else %}Add{% endif %}</button>
             </form>
         </li>
     {% empty %}
-        <p>No results found</p>
+        <li class="list-group-item">No results found</li>
     {% endfor %}
     </ul>
 </div>
-{% endif %}
+
+<script>
+    function disableButton(button) {
+    button.disabled = true;
+    button.textContent = "Added";
+  }
+</script>

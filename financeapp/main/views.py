@@ -5,8 +5,10 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.core import serializers
 from django.template.context_processors import csrf
 from django.template.loader import render_to_string
+from django.db.models import Q
 from .models import Portfolio, Stock, PortfolioStock, HistoricalData, CalculatedStockData, CalculatedPortfolioData
 from .forms import PortfolioForm
+from itertools import chain
 import yfinance as yf
 import pandas as pd
 from django.db import IntegrityError
@@ -66,17 +68,31 @@ def search_stock(request):
     if not search_text:
         return HttpResponse('')  # Return early if search text is empty
 
-    results = Stock.objects.filter(ticker__icontains=search_text)
+    # Split the query into two parts
+    starts_with_results = Stock.objects.filter(Q(ticker__istartswith=search_text) | Q(short_name__istartswith=search_text))
+    contains_results = Stock.objects.filter(Q(ticker__icontains=search_text) | Q(short_name__icontains=search_text)).exclude(id__in=starts_with_results)
+
+    # Combine the two querysets, with the "starts with" results first
+    # The chain is used because the two querysets are not concatenated but rather combined.
+    # QeurySets are lazy and the database is only queried when the results are accessed.
+    results = list(chain(starts_with_results, contains_results))
+    
     # Get the portfolio
     portfolio = get_object_or_404(Portfolio, id=portfolio_id)
 
     # Select only the first five results
     results = results[:5]
 
+    # Get the IDs of the stocks in the portfolio
+    # Used for checking if a stock is already in the portfolio
+    portfolio_stocks = PortfolioStock.objects.filter(portfolio=portfolio)
+    portfolio_stock_ids = [ps.stock.id for ps in portfolio_stocks]
+
     # Pass on the results and the portfolio ID to the template
     context = {
         'results': results,
         'portfolio': portfolio,
+        'portfolio_stock_ids': portfolio_stock_ids,
     }
     
     return render(request, 'search_results.html', context)
